@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <!-- External Scripts -->
+    <script defer type="module" src="src/Js/login.js"></script>
+
+    <!-- External Stylesheets -->
+    <link type="module" rel="stylesheet" href="src/styles/navbar.css">
+    <link rel="stylesheet" href="src/styles/login.css">
+</head>
+<body>
+    <!-- Login Wrapper -->
+    <div class="login-wrapper fade-in">
+        <div class="login-container">
+            <h2>Login to Your Account</h2>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+                <!-- Email Input Group -->
+                <div class="input-group">
+                    <input type="email" id="email" required placeholder=" ">
+                    <label for="email">Email</label>
+                </div>
+
+                <!-- Password Input Group -->
+                <div class="input-group">
+                    <input type="password" id="password" required placeholder=" ">
+                    <label for="password">Password</label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="login-btn">Login</button>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="error-message"></div>
+                
+                <p class="or-text">OR</p>
+
+                <!-- Social Login Options -->
+                <div class="social-login">
+                    <button class="google-btn">
+                        <img src="https://icon-library.com/images/google-login-icon/google-login-icon-6.jpg" alt="Google"> Login with Google
+                    </button>
+                    <button class="linkedin-btn">
+                        <img src="https://static-00.iconduck.com/assets.00/linkedin-icon-1024x1024-z5dvl47c.png" alt="LinkedIn"> Login with LinkedIn
+                    </button>
+                    <button class="github-btn">
+                        <img src="https://www.pngall.com/wp-content/uploads/13/Github-Logo.png" alt="GitHub"> Login with GitHub
+                    </button>
+                </div>
+
+                <!-- Sign Up Link -->
+                <p class="signup-link">Don't have an account? <a href="./join.html">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

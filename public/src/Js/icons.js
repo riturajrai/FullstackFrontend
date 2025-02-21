@@ -1,0 +1,9 @@
+export const homeIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 9h3v7h4V9h6v7h4V9h3L12 3z"/></svg>`;
+export const jobsIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12V8l-7-5-7 5v4h2v9h10v-9h2z"/></svg>`;
+export const joinIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v2h2zm0-6h-2v4h2zm-3-2h2V7h-2z"/></svg>`;
+export const employersIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4C8.13 4 5 7.13 5 10s3.13 6 7 6 7-3.13 7-6-3.13-6-7-6zM4 10c0-1.2.41-2.3 1.1-3.2C7.7 7.25 9.71 7 12 7s4.3.25 6.9.8C19.59 7.7 20 8.8 20 10s-.41 2.3-1.1 3.2C16.3 16.75 14.29 17 12 17s-4.3-.25-6.9-.8C4.41 12.3 4 11.2 4 10z"/></svg>`;
+export const eyeIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4C6.48 4 2 6.48 2 10s4.48 6 10 6 10-2.48 10-6-4.48-6-10-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>`;
+export const aboutIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>`;
+export const profileIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 8s3.13 6 7 6 7-3.13 7-6-3.13-6-7-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0 4c-3.31 `;
+
+export const logoutIcon =  `<img src="./profile-circle-svgrepo-com.svg" alt="profile />`

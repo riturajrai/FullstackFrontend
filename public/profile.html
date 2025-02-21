@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+
+    <link rel="stylesheet" href="src/styles/profile.css">
+</head>
+<body>
+    <div class="profile-container"> 
+        <!-- ✅ Back Button -->
+        <button class="back-btn" onclick="window.history.back()">⬅ Back</button>
+
+        <div class="profile-card">
+            <input type="file" id="uploadPhoto" accept="image/*" hidden>
+            <label for="uploadPhoto">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User Avatar" id="profileImage" class="avatar">
+            </label>
+
+            <h2>Edit Your Profile</h2>
+
+            <input type="text" id="userName" placeholder="Enter Name">
+            <input type="email" id="userEmail" placeholder="Enter Email">
+            <input type="number" id="userAge" placeholder="Enter Age">
+            <input type="text" id="userLocation" placeholder="Enter Location">
+            <input type="text" id="userGroupLink" placeholder="Enter Group Link">
+            <textarea id="userDescription" placeholder="Write about yourself..." minlength="150"></textarea>
+
+            <button id="saveProfile" class="save-btn">Save & View Profile</button>
+        </div>
+    </div>
+
+    <script src="src/Js/profile.js"></script>
+</body>
+</html>

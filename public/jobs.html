@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    
+    <!-- ✅ Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- ✅ JavaScript Files -->
+    <script defer type="module" src="src/js/navbar.js"></script> 
+    <script defer type="module" src="src/js/jobslobby.js"></script>
+    <script defer type="module" src="src/Js/errorHandler.js"></script>
+    <script defer type="module" src="src/Js/icons.js"></script>
+
+    <!-- ✅ CSS Files -->
+    <link href="src/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/GloballStyles  and js/Stylish.css">
+    <link rel="stylesheet" href="src/styles/errorStyles.css">
+    
+    <!-- ✅ Animations -->
+    <script src="src/GloballStyles  and js/Animation.js"></script>
+
+    <!-- ✅ Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <!-- ✅ Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- ✅ Job Portal Section -->
+    <div class="job-container bg-gray-100 p-6 rounded-xl shadow-lg max-w-3xl mx-auto mt-[80px]">
+        <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">Available Jobs</h2>
+
+        <!-- 🔍 Search Section -->
+        <div class="search-section flex flex-col sm:flex-row items-center gap-4">
+            <!-- 🔍 Input Field -->
+            <div class="input-container flex items-center w-full sm:w-2/3 bg-white border border-gray-300 rounded-lg px-4 py-2 shadow-sm focus-within:ring-2 focus-within:ring-blue-500">
+                <!-- 🔍 SVG Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="search-icon w-5 h-5 text-gray-500">
+                    <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8c1.57 0 3.04-.47 4.26-1.26l5.72 5.72 1.42-1.42-5.72-5.72C18.53 13.96 19 12.03 19 10c0-5.52-4.48-10-10-10zm0 14c-2.21 0-4-1.79-4-4s1.79-4 4 4-1.79 4-4 4z"/>
+                </svg>
+                <input type="text" id="jobSearchInput" placeholder="Search jobs..." class="w-full outline-none pl-2 text-gray-700 placeholder-gray-400">
+            </div>
+
+            <!-- 🔍 Search Button -->
+            <button id="jobSearchButton" class="search-btn bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-all shadow-md">
+                Search
+            </button>
+        </div>
+
+        <!-- ⚠️ Error Message -->
+        <div id="jobSearchMessage" class="text-red-500 text-sm mt-2 text-center"></div>
+    </div>
+
+    <!-- ✅ Filter Button -->
+    <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition mt-4" id="jobToggleMenu">
+        <i class="fa fa-filter"></i> Filter Jobs
+    </button>
+
+    <!-- 🏷️ Category Menu -->
+    <div id="jobCategoryContainer" class="category-menu absolute top-12 left-0 w-full bg-white shadow-lg rounded-lg p-4 z-[10000] hidden opacity-0 scale-95 transition-all duration-300">
+        <!-- ✅ Categories dynamically injected here -->
+    </div>
+
+    <!-- 📋 Job List -->
+    <div id="jobList"></div>
+
+</body>
+</html>

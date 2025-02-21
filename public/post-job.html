@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job</title>
+    <link rel="stylesheet" href="src/styles/postjob.css">
+    <script src="src/Js/postjob.js" defer></script> <!-- Added defer to make sure script loads after HTML -->
+</head>
+<body>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="window.history.back();">Go Back</button>
+
+    <div class="form-container">
+        <h2>Post a Job</h2>
+
+        <!-- Job Form -->
+        <form id="jobForm">
+            <div class="input-group">
+                <label for="jobTitle">Job Title</label>
+                <input type="text" id="jobTitle" required>
+            </div>
+
+            <div class="input-group">
+                <label for="companyName">Company Name</label>
+                <input type="text" id="companyName" required>
+            </div>
+
+            <div class="input-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" required>
+            </div>
+
+            <div class="input-group">
+                <label for="category">Category</label>
+                <input type="text" id="category" required>
+            </div>
+
+            <div class="input-group">
+                <label for="salary">Salary</label>
+                <input type="text" id="salary" required>
+            </div>
+
+            <div class="input-group">
+                <label for="description">Description</label>
+                <textarea id="description" required></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="fileUpload">Upload File</label>
+                <input type="file" id="fileUpload">
+            </div>
+
+            <button type="submit">Post Job</button>
+        </form>
+    </div>
+</body>
+</html>

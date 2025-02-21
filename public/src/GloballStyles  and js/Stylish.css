@@ -1,0 +1,38 @@
+/* 🌟 Default Hidden State */
+.fade-in, .fade-left, .fade-right, .fade-scale {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: transform, opacity; /* 🚀 Performance Optimization */
+}
+
+
+/* Bottom to Top */
+.fade-in {
+    transform: translateY(40px);
+}
+
+/* Left to Right */
+.fade-left {
+    transform: translateX(-50px);
+}
+
+/* Right to Left */
+.fade-right {
+    transform: translateX(50px);
+}
+
+/* Scale-in Effect */
+.fade-scale {
+    transform: scale(0.8);
+}
+
+/* 🌟 When Elements are Visible */
+.visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+}
+
+
+
+

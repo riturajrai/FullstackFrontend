@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+    <!-- Home Icon -->
+    <symbol id="icon-home" viewBox="0 0 24 24">
+        <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3z"/>
+    </symbol>
+
+    <!-- Jobs Icon -->
+    <symbol id="icon-jobs" viewBox="0 0 24 24">
+        <path d="M4 6h16v2H4zm2 4h12v2H6zm-2 4h16v2H4z"/>
+    </symbol>
+
+    <!-- Contact Icon -->
+    <symbol id="icon-contact" viewBox="0 0 24 24">
+        <path d="M4 4h16v16H4zM6 6h12v12H6z"/>
+    </symbol>
+
+    <!-- About Icon -->
+    <symbol id="icon-about" viewBox="0 0 24 24">
+        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 4a2 2 0 1 1-2 2 2 2 0 0 1 2-2zm1 4v6h-2v-6h2z"/>
+    </symbol>
+
+    <!-- Employers Icon -->
+    <symbol id="icon-employers" viewBox="0 0 24 24">
+        <path d="M3 3h18v18H3zM6 6h12v12H6z"/>
+    </symbol>
+
+    <!-- Profile Icon -->
+    <symbol id="icon-profile" viewBox="0 0 24 24">
+        <circle cx="12" cy="7" r="5"/>
+        <path d="M2 21c0-5 4-7 10-7s10 2 10 7"/>
+    </symbol>
+
+    <!-- Join Icon -->
+    <symbol id="icon-join" viewBox="0 0 24 24">
+        <path d="M12 2v20M2 12h20"/>
+    </symbol>
+</svg>
