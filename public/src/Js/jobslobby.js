@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const categoryContainer = document.getElementById("jobCategoryContainer");
     const toggleMenu = document.getElementById("jobToggleMenu");
 
-    const API_URL = "http://localhost:5000/api/jobs";
+    const API_URL = "https://fullstackjobportal.onrender.com/api/jobs";
 
     const categories = [
         "Software Development", "Marketing", "Web Developer",
