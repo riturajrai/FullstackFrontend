@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log("🚀 Fetching Applied Jobs for User ID:", userId);
 
     try {
-        const response = await fetch(`http://localhost:5000/api/applied-jobs/${userId}`, {
+        const response = await fetch(https://fullstackjobportal.onrender.com/api/applied-jobs/${userId}`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -161,7 +161,7 @@ async function deleteAppliedJob(appliedJobId, jobCard) {
         const token = localStorage.getItem("authToken");
 
         // 🔍 Step 1: Check if the applied job exists
-        const checkResponse = await fetch(`http://localhost:5000/api/applied-jobs/delete/${appliedJobId}`, {
+        const checkResponse = await fetch(`https://fullstackjobportal.onrender.com/api/applied-jobs/delete/${appliedJobId}`, {
             method: "DELETE",
             headers: { "Authorization": `Bearer ${token}`, "Content-Type": "application/json" }
         });
