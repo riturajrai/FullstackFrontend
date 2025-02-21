@@ -3,7 +3,7 @@ import { showErrorMessage, showSuccessMessage } from './errorHandler.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     const signupForm = document.getElementById("signupForm");
-    const API_BASE_URL = "http://localhost:5000/api/users/signup";
+    const API_BASE_URL = "https://fullstackjobportal.onrender.com/api/users/signup";
 
     signupForm.addEventListener("submit", async (event) => {
         event.preventDefault();
