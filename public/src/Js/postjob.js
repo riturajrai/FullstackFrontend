@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const response = await fetch("https://fullstackjobportal.onrender.com/api/jobs", {
+            const response = await fetch("https://jobportalapi-0gfs.onrender.com/api/jobs", {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${token}`,  // Send the token for authorization
