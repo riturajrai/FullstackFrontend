@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // ✅ Fetch Job Details
-        const response = await fetch(`http://localhost:5000/api/jobs/${jobId}`);
+        const response = await fetch(`https://jobportalapi-0gfs.onrender.com/api/jobs/${jobId}`);
         if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
         const job = await response.json();
 
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         
             try {
-                const response = await fetch("http://localhost:5000/api/applied-jobs", {
+                const response = await fetch("https://jobportalapi-0gfs.onrender.com/api/applied-jobs", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
