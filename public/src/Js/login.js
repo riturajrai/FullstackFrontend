@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log("🔹 Token Used:", token);  // ✅ Debugging Token
 
     try {
-        const response = await fetch(`https://fullstackjobportal.onrender.com/api/applied-jobs/${userId}`, {
+        const response = await fetch(`https://jobportalapi-0gfs.onrender.com/api/applied-jobs/${userId}`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -58,7 +58,7 @@ async function handleLogin(event) {
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("http://localhost:5000/api/users/login", {
+        const response = await fetch("https://jobportalapi-0gfs.onrender.com/api/users/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password })
