@@ -86,4 +86,3 @@ async function handleLogin(event) {
 }
 // ✅ Attach Event Listener to the Login Form
 document.getElementById("loginForm").addEventListener("submit", handleLogin); 
-

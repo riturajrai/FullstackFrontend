@@ -7,12 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     signupForm.addEventListener("submit", async (event) => {
         event.preventDefault();
-
         const name = document.getElementById("name").value.trim();
-
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
-
         // 🛠️ Input Validation
         if (name.length < 3) {
             showErrorMessage('jobSearchMessage', '⚠️ Full name must be at least 3 characters.');
@@ -26,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
             showErrorMessage('jobSearchMessage', '⚠️ Password must be at least 6 characters long and contain both letters and numbers.');
             return;
         }
-
         const userData = { name, email, password };
         console.log(userData); 
         try {
@@ -44,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 showErrorMessage('jobSearchMessage', `🛑 Error: ${result.error || "Signup failed. Please try again."}`);
             }
-
         } catch (error) {
             console.error("❌ Signup Error:", error);
             showErrorMessage('jobSearchMessage', '🚨 Network error! Please check your connection.');

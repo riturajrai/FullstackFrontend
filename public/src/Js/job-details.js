@@ -1,6 +1,5 @@
 // ✅ Import all functions from errorHandler.js
 import { showErrorMessage, clearErrorMessage, showSuccessMessage } from '../Js/errorHandler.js';
-
 // Icon definitions
 const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon-check">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -66,68 +65,66 @@ document.addEventListener('DOMContentLoaded', async () => {
         jobDetailsContainer.innerHTML = `
  <div class="relative max-w-4xl mx-auto bg-white shadow-lg rounded-2xl p-6 sm:p-8 border border-gray-200">
     
-    <!-- ✅ Top Left More Options Button (Black Color) -->
+    <!-- ✅ Top Left More Options Button -->
     <div class="absolute top-4 left-4">
-        <!-- ⋮ More Options Button -->
-        <button id="moreOptionsButton" class="p-2 text-black bg-gray-100 rounded-full shadow-md hover:bg-gray-200 transition">
-            <i class="fa fa-ellipsis-v"></i> <!-- FontAwesome Ellipsis Icon -->
+        <button id="moreOptionsButton" class="p-2 sm:p-1 text-black bg-gray-100 rounded-full shadow-md text-sm">
+            <i class="fa fa-ellipsis-v"></i>
         </button>
     </div>
 
     <!-- ✅ Top Right Save Job Button -->
     <div class="absolute top-4 right-4">
-        <!-- 💾 Save Job Button -->
-        <button id="saveJobButton" class="p-2 text-gray-600 bg-gray-100 rounded-full shadow-md hover:bg-gray-200 transition">
-            <i class="fa fa-bookmark"></i> <!-- FontAwesome Bookmark Icon -->
+        <button id="saveJobButton" class="p-2 sm:p-1 text-gray-600 bg-gray-100 rounded-full shadow-md text-sm">
+            <i class="fa fa-bookmark"></i>
         </button>
     </div>
 
-    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 text-center sm:text-left flex items-center gap-2">
+    <!-- ✅ Job Title -->
+    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 text-center sm:text-left">
         ${job.jobTitle}
     </h2>
 
+    <!-- ✅ Job Details (Grid Layout) -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <p class="flex items-center text-gray-700 text-lg gap-2">
-            ${companyIcon} <span class="font-medium">Company:</span> ${job.companyName}
+        <p class="flex items-center text-gray-700 text-base sm:text-lg">
+            ${companyIcon} <span class="font-medium ml-2">Company:</span> ${job.companyName}
         </p>
-        <p class="flex items-center text-gray-700 text-lg gap-2">
-            ${locationIcon} <span class="font-medium">Location:</span> ${job.location}
+        <p class="flex items-center text-gray-700 text-base sm:text-lg">
+            ${locationIcon} <span class="font-medium ml-2">Location:</span> ${job.location}
         </p>
-        <p class="flex items-center text-gray-700 text-lg gap-2">
-            ${categoryIcon} <span class="font-medium">Category:</span> ${job.category}
+        <p class="flex items-center text-gray-700 text-base sm:text-lg">
+            ${categoryIcon} <span class="font-medium ml-2">Category:</span> ${job.category}
         </p>
-        <p class="flex items-center text-gray-700 text-lg gap-2">
-            ${salaryIcon} <span class="font-medium">Salary:</span> ${job.salary}
+        <p class="flex items-center text-gray-700 text-base sm:text-lg">
+            ${salaryIcon} <span class="font-medium ml-2">Salary:</span> ${job.salary}
         </p>
     </div>
 
-    <p class="text-gray-600 text-lg mt-4 leading-relaxed flex items-start gap-2">
-        ${descriptionIcon} <span class="font-medium">Description:</span> ${job.description}
+    <!-- ✅ Job Description -->
+    <p class="text-gray-600 text-base sm:text-lg mt-4 leading-relaxed">
+        <span class="font-medium">${descriptionIcon} Description:</span> ${job.description}
     </p>
 
-    <p class="text-gray-500 text-sm mt-4 flex items-center gap-2">
-        ${calendarIcon} <span class="font-medium">Posted On:</span> ${formattedDate}
+    <!-- ✅ Posted Date -->
+    <p class="text-gray-500 text-sm mt-4">
+        <span class="font-medium">${calendarIcon} Posted On:</span> ${formattedDate}
     </p>
 
-    <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <button id="applyButton" class="w-full sm:w-auto px-6 py-3 text-lg font-semibold text-white bg-blue-600 rounded-full shadow-md hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+    <!-- ✅ Action Buttons -->
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <button id="applyButton" class="w-full px-4 py-2 text-sm sm:text-base font-semibold text-white bg-blue-600 rounded-md shadow-md flex items-center justify-center gap-2">
             ${applyIcon} Apply Now
         </button>
-          <button id="applyButton" class="w-full sm:w-auto px-6 py-3 text-lg font-semibold text-white bg-blue-600 rounded-full shadow-md hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+        <button id="saveJobButton1" class="w-full px-4 py-2 text-sm sm:text-base font-semibold text-white bg-blue-600 rounded-md shadow-md flex items-center justify-center gap-2">
             ${applyIcon} Save Job
         </button>
-
-        <a href="jobs.html" class="w-full sm:w-auto px-6 py-3 text-lg font-semibold text-blue-600 border border-blue-600 rounded-full shadow-md hover:bg-blue-50 transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+        <a href="jobs.html" class="w-full px-4 py-2 text-sm sm:text-base font-semibold text-blue-600 border border-blue-600 rounded-md shadow-md flex items-center justify-center gap-2">
             ${backIcon} Back to Jobs
         </a>
     </div>
 </div>
 
-
-    `;
-    
-   
-    
+`;
     // ✅ Apply Button Smooth Animation
     document.getElementById("applyButton").addEventListener("click", function () {
         this.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Applying...`;

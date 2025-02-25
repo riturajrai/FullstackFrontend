@@ -1,54 +1,58 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const jobForm = document.getElementById("jobForm");
+document.getElementById("jobForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-    jobForm.addEventListener("submit", async (event) => {
-        event.preventDefault(); // Prevent the form from reloading the page
 
-        const token = localStorage.getItem("token");  // Get the token from localStorage
-        if (!token) {
-            alert("⚠️ You need to log in first!");
-            window.location.href = '/login.html';  // Redirect to login page
-            return;
-        }
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (loggedInUser && loggedInUser.userId) {
+        document.getElementById("postedBy").value = loggedInUser.userId;
+    } else {
+        console.error("⚠️ No logged-in user found!");
+    }
+    const formData = new FormData(event.target);
+    const jsonObject = {};
+    formData.forEach((value, key) => {
+        jsonObject[key] = value;
+    });
 
-        const jobTitle = document.getElementById("jobTitle").value;
-        const companyName = document.getElementById("companyName").value;
-        const location = document.getElementById("location").value;
-        const category = document.getElementById("category").value;
-        const salary = document.getElementById("salary").value;
-        const description = document.getElementById("description").value;
-        const fileUpload = document.getElementById("fileUpload").files[0];
+    console.log("🚀 Job Data Before Sending:", jsonObject);
 
-        const formData = new FormData();
-        formData.append("jobTitle", jobTitle);
-        formData.append("companyName", companyName);
-        formData.append("location", location);
-        formData.append("category", category);
-        formData.append("salary", salary);
-        formData.append("description", description);
-        if (fileUpload) {
-            formData.append("fileUpload", fileUpload);
-        }
+    const token = localStorage.getItem("authToken");
+ 
+    
+    if (!token) {
+        alert("Unauthorized! Please login first.");
+        return;
+    }
+
+    try {
+        const response = await fetch("http://localhost:5000/api/jobs", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`,
+            },
+            body: JSON.stringify(jsonObject),
+        });
+
+        // ✅ Debug Response Content
+        const textResponse = await response.text();
+        console.log("📢 Raw Server Response:", textResponse);
 
         try {
-            const response = await fetch("http://localhost:5000/api/jobs", {
-                method: "POST",
-                headers: {
-                    "Authorization": `Bearer ${token}`,  // Send the token for authorization
-                },
-                body: formData,  // Send the form data including the file
-            });
+            const data = JSON.parse(textResponse); // Parse JSON manually
+            console.log("📢 Parsed JSON Response:", data);
 
-            const result = await response.json();
             if (response.ok) {
-                alert("✔️ Job posted successfully!");
-                jobForm.reset();  // Reset form after successful submission
+                alert("✅ Job Posted Successfully!");
+                event.target.reset();
             } else {
-                alert(`❌ Error: ${result.error}`);
+                alert(`⚠️ Error: ${data.error}`);
             }
-        } catch (error) {
-            console.error("🚨 Error posting job:", error);
-            alert("⚠️ Failed to post the job.");
+        } catch (jsonError) {
+            console.error("❌ JSON Parse Error:", jsonError);
+            alert("⚠️ Server did not return valid JSON. Check console for details.");
         }
-    });
+    } catch (error) {
+        console.error("❌ Error posting job:", error);
+    }
 });

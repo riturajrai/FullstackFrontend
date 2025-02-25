@@ -48,3 +48,31 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 });
+
+ 
+function openPopup() {
+    const popup = document.getElementById("popup");
+    popup.classList.remove("hidden");
+
+    // Smooth Animation Effects
+    setTimeout(() => {
+        popup.classList.remove("opacity-0");
+    }, 10);
+}
+
+function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.classList.add("opacity-0");
+
+    // Delay before hiding to match animation
+    setTimeout(() => {
+        popup.classList.add("hidden");
+    }, 300);
+}
+
+// Close Popup on ESC Key
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closePopup();
+    }
+});

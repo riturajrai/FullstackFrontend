@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+fetch("http://localhost:5000/api/savedjob/65af8f3d4bcf45cd2ec02206", {
+    method: "GET",
+    headers: {
+        "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FmODVkNDRiY2I0NWNkMmVjMDIxMDYiLCJlbWFpbCI6InJpdHVyYWpyYWkyMDIwQGdtYWlsLmNvbSIsImlhdCI6MTc0MDE0OTAwNywiZXhwIjoxNzQwMTUyNjA3fQ.ySyI3qE6XTcM840iDRpvwFOqY4Cqys_TZ4kBOOJ9ETA`, // ✅ Added 'Bearer ' before token
+        "Content-Type": "application/json"
+    }
+})
+.then(res => res.json())
+.then(data => console.log(data))
+.catch(err => console.error(err));
+
+    </script>
+</body>
+</html>

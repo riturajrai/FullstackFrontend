@@ -4,33 +4,199 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
-
-    <link rel="stylesheet" href="src/styles/profile.css">
+<link rel="stylesheet" href="src/output.css" />
 </head>
-<body>
-    <div class="profile-container"> 
-        <!-- ✅ Back Button -->
-        <button class="back-btn" onclick="window.history.back()">⬅ Back</button>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
+    <div class="relative max-w-lg w-full bg-white p-6 rounded-2xl shadow-2xl border border-gray-300">
 
-        <div class="profile-card">
-            <input type="file" id="uploadPhoto" accept="image/*" hidden>
-            <label for="uploadPhoto">
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User Avatar" id="profileImage" class="avatar">
+        <!-- Back Button -->
+        <button onclick="window.history.back()" 
+            class="absolute left-4 top-4 w-11 text-white bg-blue-600 hover:bg-blue-500 p-2 rounded-full shadow-md transition">
+            ⬅️
+        </button>
+
+        <h2 class="text-2xl font-bold text-gray-800 text-center mb-5">Profile</h2>
+
+        <!-- Profile Image Upload -->
+        <div class="flex items-center justify-center space-x-3">
+            <label for="uploadPhoto" class="cursor-pointer">
+                <img id="profileImage" class="w-16 h-16 rounded-full border-2 border-blue-500 shadow-lg object-cover"
+                    src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile Picture">
             </label>
-
-            <h2>Edit Your Profile</h2>
-
-            <input type="text" id="userName" placeholder="Enter Name">
-            <input type="email" id="userEmail" placeholder="Enter Email">
-            <input type="number" id="userAge" placeholder="Enter Age">
-            <input type="text" id="userLocation" placeholder="Enter Location">
-            <input type="text" id="userGroupLink" placeholder="Enter Group Link">
-            <textarea id="userDescription" placeholder="Write about yourself..." minlength="150"></textarea>
-
-            <button id="saveProfile" class="save-btn">Save & View Profile</button>
+            <input type="file" id="uploadPhoto" accept="image/*" hidden>
         </div>
+
+        <!-- Profile Form -->
+        <form class="space-y-4 mt-4">
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="text-gray-700 block mb-1 font-medium">Full Name</label>
+                    <input type="text" id="userName" placeholder="Enter your name"
+                        class="w-full px-3 py-2 rounded-lg bg-gray-100 text-gray-800 border border-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-300">
+                </div>
+
+                <div>
+                    <label class="text-gray-700 block mb-1 font-medium">Email Address</label>
+                    <input type="email" id="userEmail" placeholder="Enter your email"
+                        class="w-full px-3 py-2 rounded-lg bg-gray-100 text-gray-800 border border-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-300">
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="text-gray-700 block mb-1 font-medium">Phone Number</label>
+                    <input type="tel" id="userNumber" placeholder="Enter your phone number"
+                        class="w-full px-3 py-2 rounded-lg bg-gray-100 text-gray-800 border border-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-300">
+                </div>
+
+                <div>
+                    <label class="text-gray-700 block mb-1 font-medium">Age</label>
+                    <input type="number" id="userAge" placeholder="Enter your age"
+                        class="w-full px-3 py-2 rounded-lg bg-gray-100 text-gray-800 border border-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-300">
+                </div>
+            </div>
+
+            <div>
+                <label class="text-gray-700 block mb-1 font-medium">Location</label>
+                <input type="text" id="userLocation" placeholder="Enter your location"
+                    class="w-full px-3 py-2 rounded-lg bg-gray-100 text-gray-800 border border-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-300">
+            </div>
+
+            <div>
+                <label class="text-gray-700 block mb-1 font-medium">Group Link</label>
+                <input type="text" id="userGroupLink" placeholder="Enter group link"
+                    class="w-full px-3 py-2 rounded-lg bg-gray-100 text-gray-800 border border-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-300">
+            </div>
+
+            <div>
+                <label class="text-gray-700 block mb-1 font-medium">About You</label>
+                <textarea id="userDescription" placeholder="Write about yourself..."
+                    class="w-full px-3 py-2 rounded-lg bg-gray-100 text-gray-800 border border-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 h-20"></textarea>
+            </div>
+
+            <div class="text-center">
+                <button id="saveProfile"
+                    class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded-lg shadow-md transition">
+                    Save & Update Profile
+                </button>
+            </div>
+        </form>
     </div>
 
-    <script src="src/Js/profile.js"></script>
+
+    <script>
+const loadProfile = async () => {
+    const userId = localStorage.getItem("userId");
+    const token = localStorage.getItem("authToken");
+
+    console.log("🔹 User ID:", userId);
+    console.log("🔹 Auth Token:", token);
+
+    if (!userId || !token) {
+        alert("⚠️ Authentication error! Please log in again.");
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:5000/api/profile/${userId}`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        const result = await response.json();
+        console.log("🔹 API Response:", result);  // ✅ Debugging Line
+
+        if (!response.ok) {
+            throw new Error(result.error || "⚠️ Failed to fetch profile.");
+        }
+
+        // ✅ Fix: Change `result.profile` to `result.data`
+        if (!result.data) {
+            throw new Error("⚠️ Profile data is missing in response.");
+        }
+
+        // ✅ Populate user profile
+        document.getElementById("userName").value = result.data.name || "";
+        document.getElementById("userEmail").value = result.data.email || "";
+        document.getElementById("userNumber").value = result.data.number || "";
+        document.getElementById("userAge").value = result.data.age || "";
+        document.getElementById("userLocation").value = result.data.location || "";
+        document.getElementById("userGroupLink").value = result.data.groupLink || "";
+        document.getElementById("userDescription").value = result.data.description || "";
+        document.getElementById("profileImage").src = result.data.profileImage || "https://cdn-icons-png.flaticon.com/512/3135/3135715.png";
+
+        console.log("✅ Profile Data Loaded");
+    } catch (error) {
+        console.error("⚠️ Error:", error);
+        alert(`⚠️ ${error.message}`);
+    }
+};
+
+// ✅ Load profile when page loads
+window.onload = loadProfile;
+
+// post
+
+document.getElementById("saveProfile").addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    const userId = loggedInUser ? loggedInUser.userId : null;
+    const token = localStorage.getItem("authToken");
+
+    console.log("🔹 Extracted User ID:", userId);
+    console.log("🔹 Auth Token:", token);
+    
+    if (!userId || !token) {
+        alert("⚠️ Authentication error! Please log in again.");
+        localStorage.clear();
+        window.location.href = "login.html";
+        return;
+    }
+
+    const user = {
+        userId: userId,
+        name: document.getElementById("userName").value.trim(),
+        email: document.getElementById("userEmail").value.trim(),
+        age: document.getElementById("userAge").value.trim(),
+        number: document.getElementById("userNumber").value,  // ✅ Check if this is set
+        location: document.getElementById("userLocation").value.trim(),
+        groupLink: document.getElementById("userGroupLink").value.trim(),
+        description: document.getElementById("userDescription").value.trim(),
+        profileImage: document.getElementById("profileImage").src
+    };
+
+    console.log("🔹 Sending Data to Server:", JSON.stringify(user));
+    console.log("🔹 Sending Data to Server:", JSON.stringify(user)); // 👉 Debugging
+
+    try {
+        const response = await fetch("http://localhost:5000/api/profile", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(user),
+        });
+
+        const result = await response.json();
+        console.log("🔹 Server Response:", result);
+
+        if (!response.ok) {
+            throw new Error(result.error || "⚠️ Failed to update profile.");
+        }
+
+        alert("✅ Profile Updated Successfully!");
+        window.location.reload();
+    } catch (error) {
+        console.error("⚠️ Error:", error);
+        alert(`⚠️ ${error.message}`);
+    }
+});
+
+    </script>
+
 </body>
 </html>

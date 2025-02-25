@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applied Jobs</title>
-   
-
-
     <link href="src/output.css" rel="stylesheet">
      <link rel="stylesheet" href="src/GloballStyles  and js/Stylish.css">
      <script src="src/GloballStyles  and js/Animation.js"></script>
@@ -20,14 +17,11 @@
         <div class="applied-jobs-header border-b pb-3 mb-4">
             <h2 class="text-2xl font-semibold text-gray-800">📋 Applied Jobs</h2>
         </div>
-    
         <!-- Applied Jobs Container -->
         <div id="appliedJobsContainer" class="applied-jobs-container space-y-4">
             <p class="text-gray-600 text-center">⏳ Loading Applied Jobs...</p> 
         </div>
     </div>
-    
-
     <script>
 document.addEventListener('DOMContentLoaded', async () => {
     const appliedJobsContainer = document.getElementById('appliedJobsContainer');
@@ -86,29 +80,29 @@ document.addEventListener('DOMContentLoaded', async () => {
             jobCard.setAttribute('data-job-id', job._id); // Store job ID in dataset
 
             jobCard.innerHTML = `
-            <div class="job-card bg-white shadow-lg rounded-lg p-5 flex flex-col md:flex-row justify-between items-start md:items-center border border-gray-200 transition-transform hover:scale-105 max-w-2xl mx-auto">
+          <div class="job-card bg-white shadow-lg rounded-lg p-5 flex flex-col md:flex-row justify-between items-start md:items-center border border-gray-300 max-w-2xl mx-auto">
     <!-- Job Info Section -->
-    <div class="job-info">
-        <h3 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <div class="job-info space-y-2">
+        <h3 class="text-xl font-semibold text-gray-900 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
             </svg>
             ${job.jobTitle}
         </h3>
-        <p class="text-gray-600 flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <p class="text-gray-700 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m2 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
             <strong>Company:</strong> ${job.companyName}
         </p>
-        <p class="text-gray-600 flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <p class="text-gray-700 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 100 20 10 10 0 000-20z"/>
             </svg>
             <strong>Location:</strong> ${job.location}
         </p>
-        <p class="text-gray-600 flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <p class="text-gray-700 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-8 12a4 4 0 108 0M3 21h18"/>
             </svg>
             <strong>Applied On:</strong> ${new Date(job.appliedDate).toLocaleDateString()}
@@ -117,13 +111,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     <!-- Job Actions -->
     <div class="job-actions flex flex-col sm:flex-row gap-3 mt-4 sm:mt-0">
-        <button class="view-btn bg-blue-600 text-white px-5 py-2 rounded-md shadow-md flex items-center gap-2 hover:bg-blue-700 transition-all transform hover:scale-105 active:scale-95">
+        <button class="view-btn bg-blue-600 text-white px-5 py-2 rounded-md shadow-md flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12m-2 2h.01M11 12m-2 2h.01M19 12m-2 2h.01"/>
             </svg>
             View
         </button>
-        <button class="delete-btn bg-red-600 text-white px-5 py-2 rounded-md shadow-md flex items-center gap-2 hover:bg-red-700 transition-all transform hover:scale-105 active:scale-95">
+        <button class="delete-btn bg-red-600 text-white px-5 py-2 rounded-md shadow-md flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
@@ -131,7 +125,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         </button>
     </div>
 </div>
-
 
             `;
             // **View Button Click Event**

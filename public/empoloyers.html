@@ -5,29 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employers Dashboard</title>
 
-    <!-- External Scripts & Styles -->
-    <script defer src="src/Js/employers.js" type="module"></script>
-    <script defer type="module" src="src/Js/navbar.js"></script>
-    <script defer type="module" src="src/Js/errorHandler.js"></script>
-
-    <link rel="stylesheet" href="src/styles/errorStyles.css">
-    <link href="src/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="src/GloballStyles  and js/Stylish.css">
-    <script defer src="src/GloballStyles  and js/Animation.js"></script>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- External Styles -->
+    <link rel="stylesheet" href="src/output.css"/>
+      <script defer src="src/Js/Employers.js"></script>
+    <script type="module" defer src="src/Js/navbar.js"></script>
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen">
     
     <!-- Navbar -->
     <div id="navbar-container"></div>
 
-    <!-- Main Content -->
-    <div id="main-container" class="flex-grow flex items-center justify-center p-6"></div>
+   <!-- Navigation Links (Fully Centered & Responsive) -->
+<div class="flex justify-center items-center min-h-screen px-4">
+    <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center gap-4 sm:gap-8 w-full max-w-lg text-center">
+        <a href="post-job.html" class="px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition flex-1 w-full sm:w-80 text-center">Post Job</a>
+        <a href="./Mangepost.html" id="" class="px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition">Manage Jobs</a>
+    </div>
+</div>
 
-    <!-- Logout Container -->
-    <div id="logout-container"></div>
-    
+
+
 </body>
 </html>
